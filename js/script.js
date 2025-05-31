@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkoutBtn = document.querySelector('.checkout-btn');
     const priceAmount = document.querySelector('.price-amount');
     const customerEmail = document.getElementById('customer-email');
+    const customerPhone = document.getElementById('customer-phone');
 
     const addOnsPrices = {
         "none": 0,
@@ -25,35 +26,52 @@ document.addEventListener('DOMContentLoaded', function() {
         
     };
 
-    checkoutBtn.addEventListener('click', function() {
-        if (cart.length === 0) return;
+   checkoutBtn.addEventListener('click', function() {
+    if (cart.length === 0) return;
 
-        const item = cart[0];
-        const email = customerEmail.value;
-        const totalPrice = updatePrice(item.id, item.stems, item.addOn);
+    const item = cart[0];
+    const email = customerEmail.value;
+    const phone = customerPhone.value;
 
-        const templateParams = {
-            name: email,
-            time: new Date().toLocaleString(),
-            message: item.instructions || 'No special instructions.',
-            product: item.name,
-            color: item.color,
-            stems: item.stems,
-            addOn: item.addOn !== 'none' ? item.addOn : 'No add-on',
-            price: totalPrice
-        };
+    console.log('Phone to send:', phone);  // <== Add this line
 
-        emailjs.send('service_5a2gqgh', 'template_2xtwh9r', templateParams)
-            .then(function(response) {
-                alert('Order sent! We’ll get back to you soon.');
-                cart = [];
-                updateCart();
-                customerEmail.value = '';
-            }, function(error) {
-                console.error('FAILED...', error);
-                alert('Failed to send email. Please try again.');
-            });
-    });
+    if (!phone) {
+        alert('Please enter your contact number.');
+        return;
+    }
+    if (!email) {
+        alert('Please enter your email.');
+        return;
+    }
+
+    const totalPrice = updatePrice(item.id, item.stems, item.addOn);
+
+    const templateParams = {
+        name: email,
+        phone: phone,
+        time: new Date().toLocaleString(),
+        message: item.instructions || 'No special instructions.',
+        product: item.name,
+        color: item.color,
+        stems: item.stems,
+        addOn: item.addOn !== 'none' ? item.addOn : 'No add-on',
+        price: totalPrice
+    };
+
+    emailjs.send('service_5a2gqgh', 'template_2xtwh9r', templateParams)
+        .then(function(response) {
+            alert('Order sent! We’ll get back to you soon.');
+            cart = [];
+            updateCart();
+            customerEmail.value = '';
+            customerPhone.value = '';  // clear phone input too
+        }, function(error) {
+            console.error('FAILED...', error);
+            alert('Failed to send email. Please try again.');
+        });
+});
+
+
 
     function updatePrice(productId, stemCount, addOn) {
         const basePrice = flowerPrices[productId][stemCount] || 0;
@@ -84,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 stems: 1,
                 instructions: '',
                 addOn: 'none'
+                
             });
 
             updateCart();
