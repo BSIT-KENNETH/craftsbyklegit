@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafts by K - Beautiful Flower Arrangements</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 style="font-family: 'Great Vibes', cursive;" class="logo">Crafts by K</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#cart" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2 style="font-family: 'Great Vibes', cursive;">Crafts By K</h2>
+            <p>Put a smile on you love one's face</p>
+            <a href="#shop" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Crafts by K</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to our shop, where elegance meets craftsmanship! We specialize in handmade satin flowers, carefully crafted with love and attention to detail. Each bloom is designed to bring a touch of beauty and charm to your special moments—whether it's for weddings, home décor, gifts, or fashion accessories. Our passion lies in creating unique, high-quality pieces that reflect both creativity and care. Thank you for supporting our small business and the art of handmade design!.</p>
+                    <p>Each arrangement is made with love and attention to detail, ensuring you receive a unique and special product every time.</p>
+                </div>
+                <div class="about-image">
+                    <img src="img/abt1.jpg" alt="Flower arrangement">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="shop">
+        <div class="container">
+            <h2>Our Flowers</h2>
+            <p>Select one of our beautiful arrangements to customize</p>
+            <div class="products">
+                <!-- Product 1 -->
+                <div class="product" data-id="1" data-name="Roses Bouquet">
+                    <img src="img/fl1.jpg" alt="Classic Roses Bouquet">
+                    <h3>Roses Bouquet</h3>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product" data-id="2" data-name="Dahlia Bouquet">
+                    <img src="img/fl2.jpg" alt="Wildflower Mix">
+                    <h3>Dahlia Bouquet</h3>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product" data-id="3" data-name="Plumeria Bouquet">
+                     <img src="img/fl3.jpg" alt="Wildflower Mix">
+                    <h3>Plumeria Bouquet</h3>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product" data-id="4" data-name="Sunflower Bouquet">
+                     <img src="img/fl4.jpg" alt="Wildflower Mix">
+                    <h3>Sunflower Bouquet</h3>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="cart" class="cart">
+    <div class="container">
+        <h2>Your Cart</h2>
+        <div class="cart-content">
+            <div class="cart-items">
+                <p class="empty-cart">Your cart is empty</p>
+                <div class="cart-item" style="display: none;">
+                    <img src="" alt="" class="cart-item-image">
+                    <div class="cart-item-details">
+                        <h3 class="cart-item-name"></h3>
+                        <div class="cart-item-options">
+                            <div class="form-group">
+                                <label for="color-preference">Preferred Color:</label>
+                                <select id="color-preference" class="color-select">
+                                    <option value="winered">Wine Red</option>
+                                    <option value="peachpink">Peach Pink</option>
+                                    <option value="deeppurple">Deep Purple</option>
+                                    <option value="beanpaste">Bean Paste</option>
+                                    <option value="champagne">Champagne</option>
+                                    <option value="royalblue">Royal Blue</option>
+                                    <option value="white">White</option>
+                                    <option value="yellow">Yellow</option>
+                                    <option value="milkywhite">Milky White</option>
+                                    <option value="matcha">Matcha</option>
+                                    <option value="mixed">Mixed Colors</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="stem-count">Number of Stems:</label>
+                                <select id="stem-count" class="stem-select">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="10">10</option>
+                                    <option value="12">12</option>
+                                    <option value="15">15</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+    <label for="add-ons">Add-ons:</label>
+    <select id="add-ons" class="add-ons-select">
+        <option value="none">None</option>
+        <option value="lights">Lights (+₱15)</option>
+        <option value="butterfly">Butterfly (+₱20)</option>
+        <option value="photo-strip">Photo Strip (+₱30)</option>
+    </select>
+</div>
+                            <div class="form-group">
+                                <label for="additional-instructions">Additional Instructions:</label>
+                                <textarea id="additional-instructions" class="additional-instructions" placeholder="Any special requests or instructions for your order"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="remove-item"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="cart-summary">
+                <div class="form-group">
+                    <label for="customer-email">Email Address:</label>
+                    <input type="email" id="customer-email" placeholder="Your email address" required>
+                </div>
+                <div class="price-summary">
+                    <p>Price: ₱<span class="price-amount">0</span></p>
+                    <p class="price-note">Price will be calculated based on stem count</p>
+                </div>
+                <button class="checkout-btn" disabled>Confirm and Send Order Details</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+           
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                   
+                    <p><i class="fas fa-envelope"></i>bykcrafts47@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 09065418047</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Brgy. 7 Poblacion, General Luna, Quezon</p>
+                    <p><i class="fab fa-facebook"></i><a href="https://www.facebook.com/share/15yW65tBqX/?mibextid=wwXIfr">Crafts by K</a></p>
+                </div>
+
+                 <div class="contact-form">
+                   <img src="img/thankyou.jpg" alt="" class="ty">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Crafts by K. All rights reserved.</p>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init('k2MnFH2x1vFChEQFM'); // replace with your EmailJS public key
+</script>
+    <script src="js/script.js"></script>
+</body>
+</html>
