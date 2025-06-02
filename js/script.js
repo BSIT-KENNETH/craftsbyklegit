@@ -193,3 +193,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateCart();
 });
+ const elements = document.querySelectorAll('.fade-in-left, .fade-in-right');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Remove this if you want the animation to replay on scroll
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  elements.forEach(el => observer.observe(el));
+  setTimeout(() => {
+      document.getElementById('splash').style.display = 'none';
+     
+      splash.classList.add('fade-out');
+    }, 3000); // 3 seconds

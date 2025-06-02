@@ -11,7 +11,41 @@
     --border-radius: 8px;
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-left,
+.fade-in-right {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-left.visible {
+  animation: fadeInLeft 2s forwards;
+}
+
+.fade-in-right.visible {
+  animation: fadeInRight 2s forwards;
+}
 * {
     margin: 0;
     padding: 0;
@@ -71,6 +105,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+   
 }
 
 header .container {
@@ -469,6 +504,98 @@ footer {
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
+    /* Splash Screen */
+#splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f2ecec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    animation: flashBackground 1s linear 0s forwards, fadeOutSplash 2s 2s forwards;
+}
+
+/* Flash background animation */
+@keyframes flashBackground {
+    0% {
+        background-color: #f2ecec;
+    }
+    100% {
+        background-color: #f2ecec;
+    }
+}
+
+/* Fade-out splash screen */
+@keyframes fadeOutSplash {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Logo slide-in animation */
+@keyframes slideLogo {
+    0% {
+        transform: translateX(-100%) scale(0.5); /* Start off-screen to the left */
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-50%) scale(0.5); /* Move to center */
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) scale(1); /* Centered and scaled */
+        opacity: 1;
+    }
+}
+
+/* Placeholder for further logo animation (optional) */
+@keyframes scaleAndMoveLogo {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Logo styles */
+.splash-logo {
+    width: 320px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    animation: slideLogo 2s ease forwards, scaleAndMoveLogo 2s 2s forwards;
+}
+    @keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-left,
+.fade-in-right {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-left.visible {
+  animation: fadeInLeft 2s forwards;
+}
+
+.fade-in-right.visible {
+  animation: fadeInRight 2s forwards;
+}
     /* General responsive adjustments */
     .about-content,
     .cart-content,
@@ -643,4 +770,75 @@ footer {
 }
 .ty{
     width: 500px;
+}
+.cbklogo{
+    width: 200px;
+}
+/* Splash Screen */
+#splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f2ecec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    animation: flashBackground 1s linear 0s forwards, fadeOutSplash 2s 2s forwards;
+}
+
+/* Flash background animation */
+@keyframes flashBackground {
+    0% {
+        background-color: #f2ecec;
+    }
+    100% {
+        background-color: #f2ecec;
+    }
+}
+
+/* Fade-out splash screen */
+@keyframes fadeOutSplash {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Logo slide-in animation */
+@keyframes slideLogo {
+    0% {
+        transform: translateX(-100%) scale(0.5); /* Start off-screen to the left */
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-50%) scale(0.5); /* Move to center */
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) scale(1); /* Centered and scaled */
+        opacity: 1;
+    }
+}
+
+/* Placeholder for further logo animation (optional) */
+@keyframes scaleAndMoveLogo {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Logo styles */
+.splash-logo {
+    width: 320px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    animation: slideLogo 2s ease forwards, scaleAndMoveLogo 2s 2s forwards;
 }
